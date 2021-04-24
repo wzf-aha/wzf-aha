@@ -1,0 +1,12 @@
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /get-books-list/:user/:password --> ginDemo/app/student/controller.GetBooksList (3 handlers)
+[GIN-debug] GET    /books/books-info         --> ginDemo/app/student/controller.BooksInfo (3 handlers)
+[GIN-debug] GET    /books/test-middle        --> ginDemo/app/student/controller.TestMiddle (4 handlers)
+[GIN-debug] GET    /books/test-person        --> ginDemo/app/student/controller.TestPerson (3 handlers)
+[GIN-debug] GET    /v1/goods/list            --> ginDemo/app/teacher.goodsHandler (3 handlers)
+[GIN-debug] GET    /checkout                 --> ginDemo/app/teacher.checkoutHandler (3 handlers)
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080

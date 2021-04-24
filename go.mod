@@ -1,0 +1,10 @@
+module ginDemo
+
+go 1.16
+
+require (
+	github.com/gin-gonic/gin v1.6.3
+	github.com/shirou/gopsutil v3.21.2+incompatible // indirect
+	github.com/tklauser/go-sysconf v0.3.4 // indirect
+	golang.org/x/net v0.0.0-20210226172049-e18ecbb05110 // indirect
+)
