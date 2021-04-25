@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/pkg/errors"
 	_ "github.com/pkg/errors"
 	"golang.org/x/net/trace"
 	"log"
@@ -27,6 +28,10 @@ func main()  {
 	//	fmt.Println("startup service failed, err:%v\n", err)
 	//}
 
+
+
+
+
 	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3306)/test")
 	if err != nil {
 		log.Fatal(err)
@@ -36,17 +41,15 @@ func main()  {
 	year,err := TestSelect(db)
 	//fmt.Printf("original error: %T %v\n",errors.Cause(err),errors.Cause(err))
 	//fmt.Printf("stack trace:\n%+v\n",err)
-	//1.不允许有未匹配到的情况
-	if err != nil {
-		fmt.Print("出错了")
-	}
 
-	//2.允许有未匹配到的情况
 	if err != nil {
-		if err != sql.ErrNoRows {// 当有非sql.ErrNoRows的错误产生时，则报错
+		//记录堆栈详情
+		fmt.Printf("errinfo:%+v\n",err)
+
+		if errors.Is(err,sql.ErrNoRows){//对于未获取到结果集的返回值做对应的业务处理
+			fmt.Print("哦，没找到匹配的数据呀")
+		}else{// 当有非sql.ErrNoRows的错误产生时，则报错
 			fmt.Print("出错了")
-		}else{
-			//对于未获取到结果集的返回值做对应的业务处理
 		}
 	}
 
@@ -60,9 +63,9 @@ func main()  {
  */
 func TestSelect(db *sql.DB) (year int,err error) {
 	err = db.QueryRow("select year from books where id = ?", 1).Scan(&year)
-	//if err != nil {
-	//	return 0, errors.Wrap(err,"not find result")
-	//}
+	if err != nil {//添加上能帮助定位问题或者问题数据的信息往上抛
+		return 0, errors.Wrap(err,"err id:1")
+	}
 	return
 }
 
