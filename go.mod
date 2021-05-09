@@ -9,4 +9,5 @@ require (
 	github.com/shirou/gopsutil v3.21.2+incompatible // indirect
 	github.com/tklauser/go-sysconf v0.3.4 // indirect
 	golang.org/x/net v0.0.0-20210226172049-e18ecbb05110 // indirect
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 )
