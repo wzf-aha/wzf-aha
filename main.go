@@ -16,7 +16,6 @@ func main() {
 
 		// 新建子协程
 		group.Go(func() error {
-			fmt.Printf("indexTemp=%d \n", indexTemp)
 			if indexTemp == 0 {
 				fmt.Println("indexTemp == 0 start ")
 				fmt.Println("indexTemp == 0 end")
@@ -25,10 +24,13 @@ func main() {
 				//这里一般都是某个协程发生异常之后，调用cancel()
 				//这样别的协程就可以通过errCtx获取到err信息，以便决定是否需要取消后续操作
 				fmt.Println("这里出错了")
+				//if index%1 == 0 {
+				//	return fmt.Errorf("something has failed on grouting:%d", index)
+				//}
 				cancel()
 				fmt.Println("indexTemp == 1 err ")
 			} else if indexTemp == 2 {
-				fmt.Println("indexTemp == 2 begin")
+				fmt.Println("indexTemp == 2 start")
 
 				// 休眠1秒，用于捕获子协程2的出错
 				time.Sleep(1 * time.Second)
