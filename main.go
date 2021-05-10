@@ -36,17 +36,15 @@ func main() {
 	//监听HTTPSERVER
 	group.Go(func() error {
 		return server.ListenAndServe()
-		//2.设置监听的TCP地址并启动服务
-		//参数1:TCP地址(IP+Port)
-		//参数2:handler 创建新的*serveMux,不使用默认的
-		//serveErr := http.ListenAndServe("127.0.0.1:9000",serveMux)
-		//if serveErr != nil {
-		//	fmt.Printf("http.ListenAndServe()函数执行错误,错误为:%v\n", serveErr)
-		//	cancel()
-		//}
-		//
-		//return serveErr
 	})
+	//2.设置监听的TCP地址并启动服务
+	//参数1:TCP地址(IP+Port)
+	//参数2:handler 创建新的*serveMux,不使用默认的
+	//serveErr := http.ListenAndServe("127.0.0.1:9000",serveMux)
+	//if serveErr != nil {
+	//	fmt.Printf("http.ListenAndServe()函数执行错误,错误为:%v\n", serveErr)
+	//	cancel()
+	//}
 
 	//监听错误及退出信号
 	group.Go(func() error {
