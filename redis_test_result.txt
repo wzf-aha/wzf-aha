@@ -1,0 +1,318 @@
+1W请求
+		       用时			          请求数/秒
+keysize		SET	    GET		     SET	    GET
+10		    0.38	0.35		26109.66	28169.02
+20		    0.39	0.41		25839.79	24154.59
+50		    0.4	    0.37		25062.66	26737.97
+100		    0.4	    0.39		24937.66	25641.03
+200		    0.4	    0.39		25188.92	25839.79
+1024		0.38	0.37		26525.2	    26881.72
+5120		0.42	0.4		    23640.66	24752.47
+
+
+
+10W请求
+		        用时			          请求数/秒
+keysize		SET	    GET		      SET	       GET
+10		    3.72	3.75		26860.06	26673.78
+20		    3.59	3.55		27870.68	28137.31
+50		    3.74	3.71		26709.4	    26925.15
+100		    3.9	    3.77		25667.35	26504.11
+200		    3.91	3.8		    25581.99	26350.46
+1024		3.68	3.75		27196.08	26688.02
+5120		3.85	3.74		25967.28	26709.4
+
+
+
+
+
+wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 10000 -d 10 -t set,get
+====== SET ======
+  10000 requests completed in 0.38 seconds
+  1 parallel clients
+  10 bytes payload
+  keep alive: 1
+
+100.00% <= 1 milliseconds
+26109.66 requests per second
+
+====== GET ======
+  10000 requests completed in 0.35 seconds
+  1 parallel clients
+  10 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+28169.02 requests per second
+
+
+ wanzhifang 
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 10000 -d 20 -t set,get
+====== SET ======
+  10000 requests completed in 0.39 seconds
+  1 parallel clients
+  20 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25839.79 requests per second
+
+====== GET ======
+  10000 requests completed in 0.41 seconds
+  1 parallel clients
+  20 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+24154.59 requests per second
+
+
+ wanzhifang 
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 10000 -d 50 -t set,get
+====== SET ======
+  10000 requests completed in 0.40 seconds
+  1 parallel clients
+  50 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25062.66 requests per second
+
+====== GET ======
+  10000 requests completed in 0.37 seconds
+  1 parallel clients
+  50 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26737.97 requests per second
+
+
+ wanzhifang 
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 10000 -d 100 -t set,get
+====== SET ======
+  10000 requests completed in 0.40 seconds
+  1 parallel clients
+  100 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+24937.66 requests per second
+
+====== GET ======
+  10000 requests completed in 0.39 seconds
+  1 parallel clients
+  100 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25641.03 requests per second
+
+
+ wanzhifang 
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 10000 -d 200 -t set,get
+====== SET ======
+  10000 requests completed in 0.40 seconds
+  1 parallel clients
+  200 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25188.92 requests per second
+
+====== GET ======
+  10000 requests completed in 0.39 seconds
+  1 parallel clients
+  200 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25839.79 requests per second
+
+
+ wanzhifang 
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 10000 -d 1024 -t set,get
+====== SET ======
+  10000 requests completed in 0.38 seconds
+  1 parallel clients
+  1024 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26525.20 requests per second
+
+====== GET ======
+  10000 requests completed in 0.37 seconds
+  1 parallel clients
+  1024 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26881.72 requests per second
+
+
+ wanzhifang 
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 10000 -d 5120 -t set,get
+====== SET ======
+  10000 requests completed in 0.42 seconds
+  1 parallel clients
+  5120 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+23640.66 requests per second
+
+====== GET ======
+  10000 requests completed in 0.40 seconds
+  1 parallel clients
+  5120 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+24752.47 requests per second
+
+
+
+wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 100000 -d 10 -t set,get
+====== SET ======
+  100000 requests completed in 3.72 seconds
+  1 parallel clients
+  10 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26860.06 requests per second
+
+====== GET ======
+  100000 requests completed in 3.75 seconds
+  1 parallel clients
+  10 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26673.78 requests per second
+
+
+ wanzhifang 
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 100000 -d 20 -t set,get
+====== SET ======
+  100000 requests completed in 3.59 seconds
+  1 parallel clients
+  20 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+27870.68 requests per second
+
+====== GET ======
+  100000 requests completed in 3.55 seconds
+  1 parallel clients
+  20 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+28137.31 requests per second
+
+
+ wanzhifang 
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 100000 -d 50 -t set,get
+====== SET ======
+  100000 requests completed in 3.74 seconds
+  1 parallel clients
+  50 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26709.40 requests per second
+
+====== GET ======
+  100000 requests completed in 3.71 seconds
+  1 parallel clients
+  50 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26925.15 requests per second
+
+
+ wanzhifang 
+ wanzhifang 
+ wanzhifang 
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 100000 -d 100 -t set,get
+====== SET ======
+  100000 requests completed in 3.90 seconds
+  1 parallel clients
+  100 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25667.35 requests per second
+
+====== GET ======
+  100000 requests completed in 3.77 seconds
+  1 parallel clients
+  100 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26504.11 requests per second
+
+
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 100000 -d 200 -t set,get
+====== SET ======
+  100000 requests completed in 3.91 seconds
+  1 parallel clients
+  200 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25581.99 requests per second
+
+====== GET ======
+  100000 requests completed in 3.80 seconds
+  1 parallel clients
+  200 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26350.46 requests per second
+
+
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 100000 -d 1024 -t set,get
+====== SET ======
+  100000 requests completed in 3.68 seconds
+  1 parallel clients
+  1024 bytes payload
+  keep alive: 1
+
+100.00% <= 1 milliseconds
+27196.08 requests per second
+
+====== GET ======
+  100000 requests completed in 3.75 seconds
+  1 parallel clients
+  1024 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26688.02 requests per second
+
+
+ wanzhifang  redis-benchmark -h 127.0.0.1 -p 6379 -c 1 -n 100000 -d 5120 -t set,get
+====== SET ======
+  100000 requests completed in 3.85 seconds
+  1 parallel clients
+  5120 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25967.28 requests per second
+
+====== GET ======
+  100000 requests completed in 3.74 seconds
+  1 parallel clients
+  5120 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+26709.40 requests per second
